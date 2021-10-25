@@ -1,0 +1,14 @@
+{
+  "name": "blockchain-full-stack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "JatinBumbra",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "jest": {},
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
