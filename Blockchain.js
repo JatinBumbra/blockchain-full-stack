@@ -17,8 +17,9 @@ class Blockchain {
   // Validate chain
   static isValidChain(chain) {
     // If starting block is not genesis block, reject chain
-    if (JSON.stringify(chain[0]) !== JSON.stringify(Block.genesis()))
+    if (JSON.stringify(chain[0]) !== JSON.stringify(Block.genesis())) {
       return false;
+    }
 
     for (let i = 1; i < chain.length; i++) {
       const { timestamp, lastHash, hash, data, nonce, difficulty } = chain[i];

@@ -2,7 +2,7 @@ const INITIAL_DIFFICULTY = 3;
 const MINE_RATE = 1000;
 
 const GENESIS_DATA = {
-  timestamp: Date.now(),
+  timestamp: null,
   data: [],
   lastHash: 'genesis-lastHash',
   hash: 'genesis-hash',
