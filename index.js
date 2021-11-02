@@ -4,12 +4,19 @@ const Wallet = require('./wallet');
 const Blockchain = require('./blockchain');
 const TransactionPool = require('./wallet/transaction-pool');
 const Pubsub = require('./app/pubsub');
+const TransactionMiner = require('./app/transaction-miner');
 // Init app
 const app = express();
 const blockchain = new Blockchain();
 const wallet = new Wallet();
 const transactionPool = new TransactionPool();
 const pubsub = new Pubsub({ blockchain, transactionPool });
+const transactionMiner = new TransactionMiner({
+  blockchain,
+  transactionPool,
+  wallet,
+  pubsub,
+});
 // Port declaration
 const DEFAULT_PORT = 5000;
 let PEER_PORT;
@@ -59,6 +66,11 @@ app.post('/api/transact', (req, res) => {
 
 app.get('/api/transaction-pool-map', (req, res) => {
   res.json(transactionPool.transactionMap);
+});
+app.get('/api/mine-transactions', (req, res) => {
+  transactionMiner.mineTransactions();
+
+  res.redirect('/api/blocks');
 });
 
 const syncWithRootNode = () => {
