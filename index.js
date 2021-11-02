@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const request = require('request');
 const Wallet = require('./wallet');
@@ -23,6 +24,8 @@ let PEER_PORT;
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 // Enable JSON parsing
 app.use(express.json());
+// Serve static assets
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 // Generate a peer server
 if (process.env.GENERATE_PEER_PORT) {
   PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 100);
@@ -87,6 +90,10 @@ app.get('/api/wallet-info', (req, res) => {
       address,
     }),
   });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
 
 const syncWithRootNode = () => {

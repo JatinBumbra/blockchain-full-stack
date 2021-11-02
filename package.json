@@ -6,22 +6,34 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --watchAll",
-    "start": "node index.js",
+    "start": "yarn build-client && node index.js",
     "dev": "nodemon index.js",
-    "dev-peer": "cross-env GENERATE_PEER_PORT='true' nodemon index.js"
+    "dev-peer": "cross-env GENERATE_PEER_PORT='true' nodemon index.js",
+    "build-client": "yarn clean && parcel build client/src/index.html --out-dir client/dist",
+    "dev-client": "yarn clean && parcel client/src/index.html --out-dir client/dist",
+    "clean": "rm -rf .cache client/dist"
   },
   "jest": {
     "testEnvironment": "node"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "cross-env": "^7.0.3",
     "jest": "^27.3.1",
     "nodemon": "^2.0.14"
   },
   "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-spread": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
     "elliptic": "^6.5.4",
     "express": "^4.17.1",
     "hex-to-binary": "^1.0.1",
+    "parcel-bundler": "^1.12.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "redis": "^3.1.2",
     "request": "^2.88.2",
     "uuid": "^8.3.2"
