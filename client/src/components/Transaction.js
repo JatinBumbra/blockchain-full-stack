@@ -2,7 +2,7 @@ import React from 'react';
 
 const Transaction = ({ transaction: { input, outputMap } }) => {
   return (
-    <div className='border-top border-2 my-2 py-2'>
+    <div className='border border-2 p-3 my-2 py-2 rounded-3'>
       <p>
         <strong>From: </strong>
         <span className='text-black-50'>{input.address}</span>

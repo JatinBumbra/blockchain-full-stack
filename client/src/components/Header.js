@@ -18,6 +18,12 @@ const Header = () => {
           <NavLink to='/blocks' exact className='mx-3 small'>
             Blocks
           </NavLink>
+          <NavLink to='/conduct-transaction' exact className='mx-3 small'>
+            Transact
+          </NavLink>
+          <NavLink to='/transaction-pool' exact className='mx-3 small'>
+            View Pool
+          </NavLink>
         </nav>
       </div>
     </header>

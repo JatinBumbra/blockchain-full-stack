@@ -9,7 +9,7 @@ const Block = ({ block }) => {
   const toggleDisplayMore = () => setDisplayMore((prev) => !prev);
 
   return (
-    <div className={`col col-lg-${displayMore ? '12' : '4'} py-2`}>
+    <div className={`col col-lg-${displayMore ? '12' : '4'} py-2 small`}>
       <div className='block p-4'>
         <p>
           <strong>Hash: </strong>

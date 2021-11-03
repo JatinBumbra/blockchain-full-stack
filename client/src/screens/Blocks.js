@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Block from '../components/Block';
+import ScreenLayout from '../layouts/ScreenLayout';
 
 const BlocksScreen = () => {
   const [blocks, setBlocks] = useState();
@@ -11,15 +12,13 @@ const BlocksScreen = () => {
   }, []);
 
   return (
-    <div>
-      <h3>Blocks</h3>
-      <div className='mb-2 border border-2 border-primary rounded-1'></div>
+    <ScreenLayout title='Blocks'>
       <div className='row'>
         {blocks
           ? blocks.map((block) => <Block key={block.hash} block={block} />)
           : null}
       </div>
-    </div>
+    </ScreenLayout>
   );
 };
 
