@@ -1,0 +1,16 @@
+body {
+  font-size: 20px;
+  word-wrap: break-word;
+  font-family: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.block {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Block from './Block';
 
 const Blocks = () => {
   const [blocks, setBlocks] = useState();
@@ -10,15 +11,14 @@ const Blocks = () => {
   }, []);
 
   return (
-    <div>
+    <div className='my-5'>
       <h3>Blocks</h3>
-      {blocks
-        ? blocks.map((block) => (
-            <div key={block.hash}>
-              <p>Hash: {block.hash}</p>
-            </div>
-          ))
-        : null}
+      <div className='mb-2 border border-2 border-primary rounded-1'></div>
+      <div className='row'>
+        {blocks
+          ? blocks.map((block) => <Block key={block.hash} block={block} />)
+          : null}
+      </div>
     </div>
   );
 };
