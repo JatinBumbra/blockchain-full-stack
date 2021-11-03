@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Block from './Block';
+import Block from '../components/Block';
 
-const Blocks = () => {
+const BlocksScreen = () => {
   const [blocks, setBlocks] = useState();
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const Blocks = () => {
   }, []);
 
   return (
-    <div className='my-5'>
+    <div>
       <h3>Blocks</h3>
       <div className='mb-2 border border-2 border-primary rounded-1'></div>
       <div className='row'>
@@ -23,4 +23,4 @@ const Blocks = () => {
   );
 };
 
-export default Blocks;
+export default BlocksScreen;
